@@ -1,0 +1,161 @@
+body {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+.logo {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 1rem;
+	border: 1px solid gray;
+	border-radius: 0.5rem;
+	background-color: rgba(240, 255, 255, 0.5);
+	box-shadow: 0 0.5rem 1rem gray;
+	position: relative;
+	top: 0;
+	opacity: 1;
+	transition: all 0.5s ease-in-out;
+	position: relative; 
+	bottom: 0; 
+	margin-bottom: -50px; 
+	transition: all 0.5s ease-in-out; 
+}
+
+form:hover,
+form:focus-within {
+	top: -10px;
+	opacity: 0.9;
+	
+	bottom: 50px; 
+	margin-bottom: 0; 
+}
+form:hover {
+	box-shadow: 0 0.8rem 1.2rem gray;
+}
+form:focus-within {
+	box-shadow: 0 1rem 1.5rem gray;
+}
+
+form.parent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+input[type="text"],
+input[type="password"]{
+	width: 278px;
+	height: 28px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 0;
+	transition: all 0.5s ease-in-out;
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.strong p{
+			margin-left: 95px;
+			font-size: 0;
+		}
+		.strong p span{
+			display: inline-block;
+			font-weight: normal;
+			font-style: normal;
+			padding:0;
+			margin:0;
+			width:94px;
+			height:20px;
+			background: #f9d194;
+			font-size: 13px;
+			color:#fff;
+			text-align: center;
+			line-height: 20px;
+		}
+		.strong p span.hover{
+			background: #f97101;
+		}
+		.strong p.active span:nth-child(2){
+			background: #f97101;
+		}
+		.strong p.active1 span{
+			background: #f97101;
+		}
+
+.label_input {
+	font-size: 20px;
+	font-family: 黑体;
+	width: 65px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	color: silvery;
+	background-color: silvery;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.custom-input {
+  font-family: "黑体", Arial, sans-serif;
+  font-size: 16px;
+}
+
+.login_btn {
+	background-color: rgba(255, 255, 255, 0.582);
+	border: 1px solid rgb(190, 225, 255);
+	padding: 10px;
+	width: 220px;
+	height: 60px;
+	border-radius: 30px;
+	font-size: 35px;
+	font-family: "KaiTi";
+	color: black;
+	font-weight: 100;
+	margin-top: 15px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: rgba(240, 255, 255, 0.5);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: darkgray;
+  color: white;
+}
+
+.val_btn {
+	background-color: rgba(255, 255, 255, 0.582);
+	border: 1px solid rgb(190, 225, 255);
+	padding: 5px;
+	width: 150px;
+	height: 30px;
+	border-radius: 30px;
+	font-size: 20px;
+	font-family: "KaiTi";
+	color: black;
+	font-weight: 100;
+	margin-top: 7.5px;
+}

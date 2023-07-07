@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+    
+<mapper namespace="com.yyy.dao.UserDao" >
+
+    <!-- 登陆 -->
+     <!-- resultType的user是返回的java Bean类型     --> 
+    <select id="findUser" resultType="user">
+	    select *from user
+	    where user_code = #{usercode}
+	    and user_pswd = #{password}
+	   
+    </select>
+
+    <select id="findUserByToken" resultType="user">
+	    select *from user
+	    where user_code = #{usercode}
+	    and token = #{token}
+	   
+    </select>
+        
+ 	<select id="findUserPicture" resultType="String">
+	    select daily_picture from user
+	    where user_id = #{user_id}
+	   
+    </select>
+    
+    <select id="findUserName" resultType="String">
+	    select  user_name from user
+	    where user_id = #{user_id}
+	   
+    </select>
+    
+    <select id="findByUsercode" resultType="user">
+        select * from user
+        where user_code = #{usercode}
+        
+    </select>    
+    
+    <select id="findByUserName_tag" resultType="user">
+        select * from user
+        where user_name like (#{usercode})
+        
+    </select>    
+    
+    <insert id="addUser">
+    	insert into user(
+    		user_name,
+    		user_code,
+    		user_pswd,
+    		daily_picture,
+    		tel
+    	)values(
+    		#{username},
+    		#{usercode},
+    		#{password},
+    		'head.png',
+    		#{tel}
+    	)
+    </insert>
+    
+    <update id="changeUserPassword">
+        update user
+        set user_pswd = #{password}
+        where user_code = #{usercode}
+    </update>
+    
+    <update id="updateToken">
+        update user
+        set token = #{token}
+        where user_code = #{usercode}
+    </update>
+
+    <update id="updateUserPicture">
+		UPDATE `user`,
+		rizhi
+		SET `user`.daily_picture = #{pictureName},
+		rizhi.daily_picture = #{pictureName}
+		WHERE
+			`user`.daily_picture = rizhi.daily_picture
+		AND rizhi.daily_picture = (
+			SELECT
+				daily_picture
+			FROM
+				`user`
+			WHERE
+				user_code = #{usercode}
+		)
+    </update>    
+    
+    <update id="updateUserName">
+		UPDATE `user`,
+		rizhi
+		SET `user`.user_name = #{newNickname},
+		rizhi.daily_author = #{newNickname}
+		WHERE
+			`user`.user_name = rizhi.daily_author
+		AND `user`.user_name = (
+			SELECT
+				`user`.user_name
+			FROM
+				`user`
+			WHERE
+				user_code = #{usercode}
+		)
+    </update> 
+    
+</mapper>

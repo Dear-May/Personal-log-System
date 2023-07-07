@@ -1,0 +1,198 @@
+body { /* 设置网页背景图片 */
+	background-repeat: no-repeat;
+	background-size: cover; /* 背景图片自适应尺寸填充 */
+}
+
+.logo-img {
+	max-width: 25%; /* 设置最大宽度为100% */
+	height: auto; /* 设置高度为自动调整 */
+}
+
+.nav-center {
+	position: relative;
+	width: 300px;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.transparent-navbar {
+	background-color: rgba(240, 255, 255, 0.5);
+	border-radius: 10px; /* 设置四周圆角为10像素 */
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5, 0.8); /* 添加立体感的阴影效果 */
+}
+
+.custom-modal-content {
+	background-color: rgba(240, 255, 255, 0.9)
+}
+
+.custom-text {
+	font-size: 18px; /* 修改为所需的字体大小 */
+	font-family: "黑体", Arial, sans-serif; /* 修改为所需的字体样式 */
+}
+
+.bg {
+	background: url('/static/img/background.jpg') no-repeat;
+	width: 380px;
+	height: 110px;
+	display: block;
+	background-size: contain;
+	padding-left: 40%;
+	padding-top: 5%;
+}
+
+.custom-bg {
+	background-color: #F0FFFF; /* 设置为所需的背景色，可以是颜色名称、十六进制值或RGB值 */
+}
+
+.headPicture {
+	width: 80px;
+	height: 80px;
+	border: none;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.middleHeadPicture {
+	width: 50px;
+	height: 50px;
+	border: none;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.smallHeadPicture {
+	width: 35px;
+	height: 35px;
+	border: none;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.bordeShadow {
+	box-shadow: 5px 2px 6px #2c2c2c
+}
+
+.items {
+	min-height: 80px;
+}
+
+.themeColor {
+	background-color: #fff;
+}
+
+.message {
+	margin-top: 8px;
+}
+
+.commentDiv {
+	margin-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 730px;
+}
+
+.hand {
+	cursor: pointer;
+}
+
+.loginBackColor {
+	background: #fff;
+}
+
+.loginBackPicture {
+	width: 100%;
+	height: 100%;
+	background-image: url(/static/img/loginBackground.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.logo {
+	width: 50px;
+	height: 50px;
+	border: none;
+	/*border-radius: 50%;*/
+	overflow: hidden;
+}
+
+.logContext {
+	padding-right: 24px;
+}
+
+.commentBody {
+	margin-top: 2px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 48px;
+}
+
+.commentPopup {
+	z-index: 9999;
+	position: absolute;
+	top: 80px;
+	left: 350px;
+	width: 400px;
+	height: 300px;
+	overflow-y: auto;
+}
+
+.comment_input {
+	float: left;
+	width: 300px;
+}
+
+.splitChoice {
+	margin-left: 500px;
+}
+
+.search {
+	z-index: 9999;
+	position: absolute;
+	top: 80px;
+	left: 350px;
+	width: 400px;
+	height: 300px;
+	overflow-y: auto;
+}
+
+.small-transparent-btn {
+	background-color: transparent !important;
+	border-color: transparent !important;
+	padding: 0.25rem 0.5rem !important;
+}
+
+.btn.active {
+	background-color: yellow;
+	/* 其他样式 */
+}
+
+.active {
+	color: red; /* 设置点赞后的颜色 */
+	transform: scale(1.2); /* 设置图标的缩放效果，使其立体感更强 */
+	transition: color 0.3s, transform 0.3s; /* 设置过渡效果的持续时间为0.3秒 */
+}
+
+.red {
+	color: red;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 1px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.close-button:hover {
+  background-color: #ccc;
+}

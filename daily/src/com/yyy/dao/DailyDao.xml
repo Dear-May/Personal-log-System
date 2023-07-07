@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyy.dao.DailyDao">
+
+	<insert id="createDaily" parameterType="daily">
+		insert into rizhi(
+		daily_author,
+		daily_details,
+		daily_createtime,
+		user_id,
+		daily_picture,
+		privacy
+		)
+		values(
+		#{daily_author},
+		#{daily_details},
+		#{daily_createtime},
+		#{user_id},
+		#{daily_picture},
+		#{privacy}
+		)
+	</insert>
+
+	<select id="selectDailyList" resultType="daily">
+		select * from rizhi where user_id = #{user_id} order by
+		daily_id desc
+	</select>
+
+	<select id="findUser_id" resultType="Integer">
+		select user_id from rizhi where daily_id = #{daily_id}
+	</select>
+
+	<delete id="deleteDaily">
+		delete from rizhi where
+		daily_id=#{id}
+	</delete>
+
+	<select id="findFriendDaily" resultType="daily">
+		select * from rizhi where user_id = #{user_id} and privacy
+		= '0' order by daily_id desc
+	</select>
+
+	<update id="updateDaily" parameterType="daily">
+		update rizhi
+		SET
+		daily_details = #{daily_details}
+		where daily_id = #{daily_id}
+	</update>
+
+	<select id="findDaliylike" resultType="Integer">
+		select likeCount
+		from rizhi
+		where daily_id = #{daily_id}
+	</select>
+
+	<update id="updateDaliylike" parameterType="daily">
+		update rizhi
+		SET
+		likeCount = likeCount + 1
+		where daily_id = #{daily_id}
+	</update>
+
+	<update id="deleteDaliylike" parameterType="daily">
+		update rizhi
+		SET
+		likeCount = likeCount - 1
+		where daily_id = #{daily_id}
+	</update>
+
+	<select id="findDaily_tag" resultType="daily">
+		SELECT * FROM rizhi
+		WHERE daily_details LIKE (#{tag}) AND privacy = '0'
+		ORDER BY daily_createtime DESC
+	</select>
+	
+	<select id="findDaily_details" resultType="String">
+		select daily_details from rizhi where daily_id = #{daily_id}
+	</select>
+	
+	<update id="saveDocument" parameterType="map">
+		update draft
+		SET
+		draft = #{content}
+		where author_id = #{usercode}
+	</update>
+	
+	<select id="getDocument" resultType="String">
+		select draft from draft where author_id = #{user_id}
+	</select>
+	
+	<update id="deleteDocument">
+		update draft
+		SET
+		draft = null
+		where author_id = #{usercode}
+	</update>
+	
+</mapper>

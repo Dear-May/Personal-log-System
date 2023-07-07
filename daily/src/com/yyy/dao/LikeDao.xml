@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyy.dao.LikeDao">
+
+	<select id="findLikes" resultType="like">
+		select * from liketable
+		where daily_id = #{daily_id}
+		order by id
+	</select>
+
+	<insert id="addLike" parameterType="like">
+		INSERT INTO liketable (
+		daily_id,
+		author_id,
+		user_name,
+		user_id
+		) VALUES (
+		#{daily_id},
+		#{author_id},
+		#{user_name},
+		#{user_id}
+		)
+	</insert>
+
+	<delete id="deleteLike_one">
+		delete from liketable
+		where id=#{id}
+	</delete>
+
+
+	<insert id="addlikepost" parameterType="daily">
+	    insert into like_message(
+	                     author_id,
+	                     message   
+	             )
+	             values(
+	                    #{author_id},
+	                    #{message}
+	            )
+	</insert> 
+	
+	<delete id="deletelikepost">
+	    delete from like_message
+	    where author_id=#{author_id}
+	</delete>
+	
+	<select id="findlikemessage_id" resultType="Integer">
+		select author_id
+		from like_message
+		where author_id = #{author_id};
+	</select>
+	
+	<select id="findlikemessage_message" resultType="String">
+		select message
+		from like_message
+		where author_id = #{author_id};
+	</select>
+
+</mapper>

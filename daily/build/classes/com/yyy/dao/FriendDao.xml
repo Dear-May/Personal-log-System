@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyy.dao.FriendDao">
+	
+    <select id="selectFriendList" resultType="friend">
+        select * from friends where owner_id = #{owner_id}
+    </select>
+    
+	 <insert id="addUser" parameterType="user">
+	    insert into response(
+	                     zhudong_id,
+	                     beidong_id   
+	             )
+	             values(
+	            
+	                    #{USER_SESSION.user_id},
+	                    #{user.user_id}
+	            )
+	</insert> 
+	
+	<insert id="addFriendRequest">
+		insert into addfriend(
+			from_id,
+			to_id,
+			agree
+		)
+		values(
+			#{from_id},
+			#{to_id},
+			'0'
+		)
+	</insert>
+	
+	<select id="findFriendRequest" resultType="Integer">
+		select from_id from addfriend where to_id = #{to_id} and agree = '0';
+	</select>
+	
+	<delete id="deleteFriendRequest">
+	    delete from addfriend where from_id=#{from_id}
+	</delete>
+	
+	<insert id="addFriend">
+			insert into friends(
+	                     owner_id,
+	                     friend_id     
+	             )
+	             values(
+	                    #{owner_id},
+	                    #{friend_id} 
+	            )
+	</insert>
+	
+</mapper>
